@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Passkeys, explained: what they are and how to roll them out | Albert Sunday</title>
+  <meta name="description" content="Passkeys are replacing passwords at work and at home. Here's how they work, why they stop phishing, and how to introduce them without locking anyone out.">
+  <link rel="canonical" href="https://albertsunday.com/blog/passkeys-explained/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=5">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Passkeys, explained: what they are and how to roll them out", "description": "Passkeys are replacing passwords at work and at home. Here's how they work, why they stop phishing, and how to introduce them without locking anyone out.", "datePublished": "2026-09-25", "author": {"@type": "Person", "name": "Albert Sunday", "url": "https://albertsunday.com/"}, "mainEntityOfPage": "https://albertsunday.com/blog/passkeys-explained/"}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="Albert Sunday, home">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="32" cy="32" r="8" fill="currentColor"/></svg>
+        Albert Sunday
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#expertise">Expertise</a></li>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/#cv">CV</a></li>
+          <li><a href="/blog/" aria-current="page">Blog</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="icon-link" href="https://www.linkedin.com/in/albert-edidiong-168b92b1/" target="_blank" rel="noopener noreferrer" aria-label="Albert on LinkedIn (opens in a new tab)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.83v1.5h.05c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13v5.43h-4v-4.82c0-1.15-.02-2.63-1.6-2.63-1.61 0-1.86 1.25-1.86 2.55v4.9h-4v-11z"/></svg>
+      </a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+<article class="article">
+  <header class="article-head">
+    <p class="article-kicker"><a href="/blog/">Writing</a></p>
+    <h1>Passkeys, explained: what they are and how to roll them out</h1>
+    <p class="article-lede">Passkeys are replacing passwords at work and at home. Here's how they work, why they stop phishing, and how to introduce them without locking anyone out.</p>
+    <p class="article-meta"><time datetime="2026-09">September 2026</time><span>5 min read</span></p>
+  </header>
+  <div class="article-hero"><svg class="article-hero-art" viewBox="0 0 720 300" role="img" aria-label="Illustration: a key linking a device to a website, with a look-alike site blocked">
+<rect class="hero-bg" x="0" y="0" width="720" height="300" rx="18"/>
+<circle class="hero-ring hero-r1" cx="360" cy="150" r="118"/>
+<circle class="hero-ring" cx="360" cy="150" r="80"/>
+<g class="hero-apps"><rect x="92" y="96" width="92" height="120" rx="14"/><rect x="530" y="72" width="120" height="78" rx="10"/><rect x="540" y="176" width="100" height="64" rx="10"/></g>
+<circle class="hero-core" cx="360" cy="150" r="40"/>
+<circle class="hero-person" cx="348" cy="150" r="11"/><rect class="hero-person" x="356" y="146" width="30" height="8" rx="2"/><rect class="hero-person" x="376" y="146" width="6" height="16" rx="1"/>
+<g class="hero-links"><line x1="184" y1="156" x2="318" y2="152"/><line x1="402" y1="140" x2="530" y2="112"/></g>
+<g class="hero-lock"><rect x="120" y="120" width="36" height="36" rx="18"/><rect x="566" y="98" width="48" height="10" rx="5"/></g>
+<g class="hero-nodes"><circle cx="360" cy="32" r="6"/><circle cx="242" cy="190" r="5"/><circle cx="478" cy="208" r="5"/></g>
+<path class="hero-block" d="M572 196l36 24M608 196l-36 24"/>
+</svg></div>
+  <div class="prose article-body">
+    <section class="takeaways" aria-labelledby="tk">
+      <h2 id="tk">In short</h2>
+      <ul>
+        <li>A passkey replaces a password with a cryptographic key pair. Nothing reusable is ever typed or sent.</li>
+        <li>Passkeys are phishing-resistant: they only work on the real website they were created for.</li>
+        <li>Choose between synced and device-bound passkeys deliberately; they suit different risk levels.</li>
+        <li>The weak point in most rollouts isn't the passkey, it's account recovery. Design that first.</li>
+      </ul>
+    </section>
+
+    <section class="article-section" aria-labelledby="what">
+    <h2 id="what">What is a passkey?</h2>
+    <p>A passkey is a modern replacement for a password, based on the FIDO2 and WebAuthn standards. When you create one, your device generates a pair of keys. The public key is stored by the website or identity provider. The private key never leaves your device or password manager, and it's unlocked with something you already use: your fingerprint, your face or your device PIN.</p>
+    <p>When you sign in, the site sends a one-time challenge. Your device signs it with the private key, and the site checks that signature with the public key it holds. If it matches, you're in.</p>
+    <figure class="diagram">
+<svg class="dg" viewBox="0 0 680 165" role="img" aria-label="How a passkey sign-in works: challenge, signature, verification"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrowhead" d="M0 0L10 5L0 10z"/></marker></defs><rect class="dg-accent" x="10" y="40" width="175" height="90" rx="12"/><text class="dg-label" x="97.5" y="82.0" text-anchor="middle">Your device</text><text class="dg-sub" x="97.5" y="103.0" text-anchor="middle">face, fingerprint or PIN</text><rect class="dg-box" x="495" y="40" width="175" height="90" rx="12"/><text class="dg-label" x="582.5" y="82.0" text-anchor="middle">Website</text><text class="dg-sub" x="582.5" y="103.0" text-anchor="middle">holds your public key</text><line class="dg-line" x1="493" y1="60" x2="187" y2="60" marker-end="url(#ah)"/><text class="dg-sub" x="340" y="52" text-anchor="middle">1. sends a one-time challenge</text><line class="dg-line" x1="187" y1="110" x2="493" y2="110" marker-end="url(#ah)"/><text class="dg-sub" x="340" y="102" text-anchor="middle">2. returns it signed with the private key</text><text class="dg-sub" x="340" y="152" text-anchor="middle">3. site checks the signature: no secret ever crosses the network</text></svg>
+<figcaption>The private key never leaves your device. The website only ever sees a signature it can check.</figcaption>
+</figure>
+    <p>For the person signing in, it feels like unlocking their phone. There's no code to copy and nothing to remember.</p>
+    </section>
+
+    <section class="article-section" aria-labelledby="different">
+    <h2 id="different">How is that different from a password and MFA?</h2>
+    <p>A password is a shared secret: you know it, the website knows it, and anyone who tricks you into typing it knows it too. Adding a text or app code helps, but the user can still be fooled into entering both on a convincing fake page.</p>
+    <p>A passkey removes both weaknesses. There's no shared secret for a website to leak, because the site only ever holds the public key. And each passkey is tied to the exact web address it was created for. A look-alike site simply can't ask for it, so even a user who's completely fooled can't hand it over. That's what makes passkeys phishing-resistant rather than just "stronger".</p>
+    </section>
+
+    <section class="article-section" aria-labelledby="synced">
+    <h2 id="synced">Synced or device-bound: which kind do you need?</h2>
+    <p>There are two kinds of passkey, and the difference matters for organisations.</p>
+    <div class="table-wrap"><table class="compare">
+<caption>Synced and device-bound passkeys compared</caption>
+<thead><tr><th scope="col"></th><th scope="col">Synced passkeys</th><th scope="col">Device-bound passkeys</th></tr></thead>
+<tbody>
+<tr><th scope="row">Where it lives</th><td>A password manager or platform account, copied across your devices</td><td>One device or security key only</td></tr>
+<tr><th scope="row">If a device is lost</th><td>Still available on your other devices</td><td>Needs a backup key or re-registration</td></tr>
+<tr><th scope="row">Control for IT</th><td>Lower: depends on the sync provider</td><td>Higher: you know exactly where it is</td></tr>
+<tr><th scope="row">Best for</th><td>Most staff and customers</td><td>Admins and high-risk roles</td></tr>
+</tbody></table></div>
+    <p>Synced passkeys are a big improvement for most staff and a natural fit for customer-facing services. For administrators and other high-risk roles, device-bound passkeys on security keys or managed devices give you tighter control over exactly where the credential lives.</p>
+    </section>
+
+    <section class="article-section" aria-labelledby="lost">
+    <h2 id="lost">What if someone loses their phone?</h2>
+    <p>A lost device doesn't expose the passkey on its own: whoever finds it still needs to get past the device's own lock screen. The practical steps are to revoke that device's passkey in the identity provider, then help the person register a new one.</p>
+    <p>That second step is where most rollouts are weakest. If your helpdesk will reset someone's sign-in after a quick phone call, attackers will simply call the helpdesk instead of phishing the user. Several well-known breaches started exactly that way. Before rolling out passkeys, decide how you'll verify someone's identity during recovery, for example with a video call and photo ID check, a manager's approval, or a temporary access pass issued through a verified channel.</p>
+    </section>
+
+    <section class="article-section" aria-labelledby="platforms">
+    <h2 id="platforms">Do Okta and Microsoft Entra ID support passkeys?</h2>
+    <p>Yes. Both support FIDO2 security keys and passkeys, and both let you require phishing-resistant sign-in through policy: authentication policies in Okta, and Conditional Access authentication strengths in Entra ID. Each also has its own phishing-resistant option alongside passkeys, Okta FastPass and Windows Hello for Business, which many organisations use as their main method on managed devices.</p>
+    <p>The exact options available depend on your licences and platform versions, so check your tenant's current settings before you plan the rollout.</p>
+    </section>
+
+    <section class="article-section" aria-labelledby="rollout">
+    <h2 id="rollout">How should an organisation roll them out?</h2>
+    <p>A big-bang switch rarely works. A phased rollout, strongest protection first, does.</p>
+    <figure class="diagram">
+<svg class="dg" viewBox="0 0 680 150" role="img" aria-label="Passkey rollout in four phases"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrowhead" d="M0 0L10 5L0 10z"/></marker></defs><line class="dg-line" x1="40" y1="40" x2="640" y2="40"/><circle class="dg-dot" cx="90" cy="40" r="9"/><rect class="dg-accent" x="12" y="66" width="156" height="70" rx="12"/><text class="dg-label" x="90.0" y="98.0" text-anchor="middle">Admins</text><text class="dg-sub" x="90.0" y="119.0" text-anchor="middle">first, always</text><circle class="dg-dot" cx="256" cy="40" r="9"/><rect class="dg-box" x="178" y="66" width="156" height="70" rx="12"/><text class="dg-label" x="256.0" y="98.0" text-anchor="middle">High-risk roles</text><text class="dg-sub" x="256.0" y="119.0" text-anchor="middle">finance, HR, execs</text><circle class="dg-dot" cx="422" cy="40" r="9"/><rect class="dg-box" x="344" y="66" width="156" height="70" rx="12"/><text class="dg-label" x="422.0" y="98.0" text-anchor="middle">Everyone</text><text class="dg-sub" x="422.0" y="119.0" text-anchor="middle">registration campaign</text><circle class="dg-dot" cx="588" cy="40" r="9"/><rect class="dg-accent" x="510" y="66" width="156" height="70" rx="12"/><text class="dg-label" x="588.0" y="98.0" text-anchor="middle">Remove SMS</text><text class="dg-sub" x="588.0" y="119.0" text-anchor="middle">retire weak fallbacks</text></svg>
+<figcaption>Roll out in phases, strongest protection first, and finish by removing the weaker methods.</figcaption>
+</figure>
+    <ol class="steps">
+      <li><strong>Protect administrators first.</strong> They're the most valuable target, and usually the most comfortable with new technology. Require phishing-resistant sign-in for every admin role.</li>
+      <li><strong>Extend to high-risk groups.</strong> Finance, HR, executives and anyone who approves payments or handles sensitive data.</li>
+      <li><strong>Run a registration campaign for everyone.</strong> Prompt people to enrol at sign-in, with a short guide and a clear deadline. Let them keep their current method while they switch.</li>
+      <li><strong>Retire the weaker methods.</strong> Once enrolment is high, remove SMS and, where possible, other phishable factors. Until you do, attackers can still target the weakest method left on an account.</li>
+    </ol>
+    </section>
+
+    <section class="article-section" aria-labelledby="pitfalls">
+    <h2 id="pitfalls">Common pitfalls to plan for</h2>
+    <ul class="pitfalls">
+      <li><strong>Recovery that's easier than sign-in.</strong> Your process for lost devices must be at least as strong as the passkey itself.</li>
+      <li><strong>Leaving old factors in place.</strong> A passkey doesn't help if SMS is still allowed as a fallback on the same account.</li>
+      <li><strong>Shared and frontline devices.</strong> Kiosks and shared workstations may need security keys rather than phone-based passkeys.</li>
+      <li><strong>Apps outside the identity provider.</strong> Systems with their own local passwords won't benefit until they're connected through SSO.</li>
+    </ul>
+    </section>
+
+    <div class="article-cta">
+      <h2>Planning a passkey rollout?</h2>
+      <p>I help organisations move to phishing-resistant sign-in on Okta and Microsoft Entra ID. Happy to talk it through.</p>
+      <a class="btn btn-primary" href="mailto:albert@albertsunday.com">Email albert@albertsunday.com</a>
+    </div>
+  </div>
+</article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; <span id="year">2026</span> Albert Sunday. Based in Mauritius.</p>
+      <p>IAM Engineer at Excellenta Cyber. <a href="https://www.linkedin.com/in/albert-edidiong-168b92b1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script src="/script.js?v=5"></script>
+</body>
+</html>

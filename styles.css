@@ -294,6 +294,20 @@ nav { margin-right: .5rem; }
 .short-answer { background: var(--accent-soft); border-radius: 12px; padding: 1rem 1.2rem; font-size: 1.08rem; line-height: 1.55 !important; }
 .short-answer span { display: block; font-size: .8rem; font-weight: 600; color: var(--accent); margin-bottom: .25rem; }
 
+/* Article sections (non-FAQ articles) */
+.takeaways { margin: 2.25rem 0 0; padding: 1.4rem 1.6rem; background: var(--accent-soft); border-radius: 14px; }
+.takeaways h2 { font-size: 1.3rem; margin: 0 0 .7rem; }
+.takeaways ul { margin: 0; padding-left: 1.2rem; display: grid; gap: .45rem; line-height: 1.55; }
+.article-section { padding-top: 2.5rem; margin-top: 2.5rem; border-top: 1px solid var(--line); }
+.article-section h2 { font-size: 1.7rem; margin: 0 0 1rem; text-wrap: balance; }
+.article-section p { line-height: 1.72; text-wrap: pretty; max-width: 68ch; }
+.steps { counter-reset: step; list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 1rem; }
+.steps li { counter-increment: step; position: relative; padding-left: 2.9rem; line-height: 1.65; min-height: 2rem; }
+.steps li::before { content: counter(step); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%;
+  background: var(--accent); color: var(--accent-ink); font-weight: 600; font-size: .95rem; }
+.pitfalls { padding-left: 1.2rem; display: grid; gap: .7rem; line-height: 1.65; max-width: 68ch; }
+.hero-block { stroke: var(--muted); stroke-width: 3; stroke-linecap: round; fill: none; }
+
 /* Diagrams */
 .diagram { margin: 1.75rem 0; padding: 1.25rem; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
 .dg { display: block; width: 100%; height: auto; }
