@@ -246,6 +246,8 @@ nav { margin-right: .5rem; }
 .blog-head { padding: clamp(3rem, 7vw, 5rem) 0 clamp(3.5rem, 8vw, 6rem); }
 .blog-head h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); }
 .blog-intro { color: var(--muted); font-size: 1.15rem; max-width: 52ch; margin: .9rem 0 0; }
+.blog-note { margin-top: 1.75rem; max-width: 62ch; padding: 1.1rem 1.3rem; background: var(--accent-soft); border-radius: 12px; }
+.blog-note p { margin: 0 0 .6rem; line-height: 1.6; }
 .post-list { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; gap: 2rem; }
 .section-head + .post-list { margin-top: 0; }
 .post { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 2rem; align-items: center;
