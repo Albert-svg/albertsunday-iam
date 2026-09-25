@@ -222,6 +222,14 @@ nav { margin-left: auto; }
 .creds-verify { margin: 0; font-weight: 500; }
 .creds-progress li { border-left-style: dashed; border-left-color: var(--ring); }
 
+/* ---------- CV download ---------- */
+.cv-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem 3rem; }
+.cv-text { max-width: 52ch; }
+.cv-text h2 { margin-bottom: .75rem; }
+.cv-text p { color: var(--muted); margin: 0; }
+.btn-icon.cv-btn svg { color: var(--accent-ink); width: 20px; height: 20px; }
+.contact { border-top: 1px solid var(--line); }
+
 /* ---------- Contact ---------- */
 .contact-inner { text-align: center; max-width: 640px; }
 .contact h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1rem; }
