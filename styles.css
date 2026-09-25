@@ -310,6 +310,8 @@ nav { margin-right: .5rem; }
 .pitfalls { padding-left: 1.2rem; display: grid; gap: .7rem; line-height: 1.65; max-width: 68ch; }
 .hero-block { stroke: var(--muted); stroke-width: 3; stroke-linecap: round; fill: none; }
 
+.article-disclaimer { margin: 2.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; font-style: italic; }
+
 /* Diagrams */
 .diagram { margin: 1.75rem 0; padding: 1.25rem; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
 .dg { display: block; width: 100%; height: auto; }
