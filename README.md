@@ -9,6 +9,8 @@ A simple, static single-page portfolio. No framework and no build step.
 - `favicon.svg` — site icon
 - `Albert-Sunday-CV.pdf` — public CV offered for download (sector-only, no client names)
 - `_headers` — security headers applied by Cloudflare Pages
+- `robots.txt` and `sitemap.xml` — for search engines; add each new blog post to the sitemap
+- `og-image.jpg` — preview image shown when the site is shared on LinkedIn, WhatsApp, etc.
 - `_redirects` — short links: /cv, /linkedin, /credly
 - `.well-known/security.txt` — security contact (RFC 9116); renew the Expires date yearly
 
