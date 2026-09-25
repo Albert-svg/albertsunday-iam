@@ -241,6 +241,38 @@ nav { margin-left: auto; }
 .header-inner { gap: 1rem; }
 nav { margin-right: .5rem; }
 
+/* ---------- Blog ---------- */
+.nav-list a[aria-current="page"] { color: var(--ink); font-weight: 500; }
+.blog-head { padding-bottom: 1rem; }
+.blog-head h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); }
+.blog-intro { color: var(--muted); font-size: 1.15rem; max-width: 52ch; margin: 1rem 0 0; }
+.blog-list-section { padding-top: 1.5rem; }
+.post-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.5rem; max-width: 760px; }
+.post { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.post h2 { font-size: 1.7rem; margin: .4rem 0 .6rem; }
+.post h2 a { color: var(--ink); text-decoration: none; }
+.post h2 a:hover { color: var(--accent); }
+.post p { color: var(--muted); max-width: 62ch; }
+.post-link { font-weight: 500; }
+.post-title { font-family: "Newsreader", Georgia, serif; font-weight: 400; font-size: 1.7rem; line-height: 1.2; margin: .4rem 0 .6rem; }
+.post-title a { color: var(--ink); text-decoration: none; }
+.post-title a:hover { color: var(--accent); }
+.post-meta, .article-meta { display: flex; gap: 1.25rem; color: var(--muted); font-size: .92rem; margin: 0; }
+
+.article { max-width: 720px; margin-inline: auto; padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(3rem, 8vw, 6rem); }
+.article-kicker { margin: 0 0 1rem; font-weight: 500; }
+.article-kicker a { text-decoration: none; }
+.article h1 { font-size: clamp(2.3rem, 5vw, 3.4rem); text-wrap: balance; }
+.article-lede { font-size: 1.2rem; color: var(--muted); margin: 1.25rem 0 1rem; text-wrap: pretty; }
+.toc { margin: 2.5rem 0; padding: 1.4rem 1.6rem; background: var(--tint); border: 1px solid var(--line); border-radius: 14px; }
+.toc-title { font-weight: 600; margin: 0 0 .6rem; }
+.toc ol { margin: 0; padding-left: 1.3rem; display: grid; gap: .35rem; }
+.article-body { max-width: 66ch; }
+.article-body h2 { font-size: 1.65rem; margin: 2.6rem 0 .8rem; text-wrap: balance; scroll-margin-top: 90px; }
+.article-body p { line-height: 1.72; text-wrap: pretty; }
+.article-cta { margin-top: 3.5rem; padding: 1.8rem; border: 1px solid var(--accent); border-radius: 14px; background: var(--surface); }
+.article-cta h2 { margin-top: 0; }
+
 /* ---------- Footer ---------- */
 .site-footer { border-top: 1px solid var(--line); padding: 2rem 0; color: var(--muted); font-size: .9rem; }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; }

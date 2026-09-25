@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>IAM FAQs: the essentials | Albert Sunday</title>
+  <meta name="description" content="Plain answers to the ten most common questions about identity and access management: SSO, MFA, phishing-resistant sign-in, SAML vs OIDC, SCIM, JML, RBAC vs ABAC and least privilege.">
+  <link rel="canonical" href="https://albertsunday.com/blog/iam-faqs/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is identity and access management?", "acceptedAnswer": {"@type": "Answer", "text": "Identity and access management, usually shortened to IAM, is the discipline of making sure the right people and systems can reach the right resources, at the right time, for the right reasons, and that you can show who had access to what. In practice it covers four jobs. Identity: a single, trustworthy record of every person and service account. Authentication: proving someone is who they claim to be. Authorisation: deciding what they're allowed to do once they're in. Governance: reviewing and evidencing that access over time, so it doesn't quietly pile up. Most organisations run this through an identity platform such as Okta or Microsoft Entra ID, which becomes the front door to every application."}}, {"@type": "Question", "name": "What's the difference between authentication and authorisation?", "acceptedAnswer": {"@type": "Answer", "text": "Authentication answers \"who are you?\" Authorisation answers \"what are you allowed to do?\" Showing your passport at an airport is authentication. Your boarding pass, which lets you onto one specific flight and not the others, is authorisation. The two are often handled by different systems: your identity provider authenticates you, then the application decides what your role lets you see and change. Most breaches involving identity exploit one or the other: stolen credentials beat weak authentication, and excessive permissions turn a single compromised account into a much bigger problem."}}, {"@type": "Question", "name": "What is single sign-on, and is it a security risk?", "acceptedAnswer": {"@type": "Answer", "text": "Single sign-on (SSO) lets people sign in once, to their identity provider, and then reach all their connected applications without separate passwords for each. A common worry is that SSO puts all your eggs in one basket. It does, but that basket is far easier to protect than dozens of scattered passwords. With SSO you enforce strong MFA in one place, see every sign-in in one log, and switch off someone's access to everything in a single step when they leave. Without it, people reuse passwords across apps, and offboarding means hunting through each system by hand. The key is to treat the identity provider as your most critical system: strong MFA for everyone, extra protection for administrators, and monitoring of unusual sign-ins."}}, {"@type": "Question", "name": "Is SMS-based MFA good enough?", "acceptedAnswer": {"@type": "Answer", "text": "It's much better than a password alone, but it's the weakest form of MFA and no longer enough for most organisations. Text-message codes can be intercepted through SIM-swap fraud, where an attacker persuades a mobile carrier to move your number to their SIM. More commonly, users are simply tricked into typing the code into a convincing fake login page. Authenticator-app push notifications help, but they can be defeated by the same fake pages, or by \"MFA fatigue\" attacks that bombard someone with prompts until they tap approve. If you're still on SMS, the practical path is: move everyone to an authenticator app with number matching, then move towards phishing-resistant methods, starting with administrators and other high-risk users."}}, {"@type": "Question", "name": "What does \"phishing-resistant\" authentication mean?", "acceptedAnswer": {"@type": "Answer", "text": "Phishing-resistant authentication can't be passed along to a fake website, even if the user is fooled. The credential is cryptographically tied to the real site's address, so a look-alike page simply can't use it. The main options are FIDO2 security keys, passkeys, platform authenticators such as Windows Hello for Business, and Okta FastPass when it's configured to be phishing-resistant. Smart cards also qualify. These methods are usually easier for users too: a fingerprint or face check replaces typing codes. For most organisations, the sensible first step is phishing-resistant MFA for administrators, finance teams and executives, then extending it to everyone."}}, {"@type": "Question", "name": "SAML or OIDC: which should I use?", "acceptedAnswer": {"@type": "Answer", "text": "Both are standards that let an identity provider tell an application \"this person has signed in, and here's who they are\". They solve the same problem in different eras. SAML 2.0 dates from the mid-2000s and exchanges XML documents through the browser. It's mature, widely supported by enterprise software, and still the default for many business applications. OpenID Connect (OIDC) is newer, built on OAuth 2.0, and uses lightweight JSON tokens. It's better suited to modern web apps, mobile apps and APIs. My rule of thumb: use whatever the application supports well. If it offers both, choose OIDC for new builds and anything mobile, and SAML where it's the vendor's more mature option. One common confusion is worth clearing up: OAuth 2.0 on its own is for authorisation, granting an app access to something on your behalf. OIDC is the layer that adds authentication on top."}}, {"@type": "Question", "name": "What is SCIM provisioning?", "acceptedAnswer": {"@type": "Answer", "text": "SCIM (System for Cross-domain Identity Management) is a standard way for your identity provider to create, update and remove user accounts inside other applications automatically. SSO controls how people sign in; SCIM controls whether their account exists at all. Without it, someone in IT creates accounts by hand in each app, and deleting them when people leave is easy to forget. With SCIM, assigning someone an application in Okta or Entra creates their account there, a change of department updates it, and removing them from the application disables it. When you evaluate new software, SCIM support is one of the most useful things to check for. It's often only available on higher pricing tiers, so ask early."}}, {"@type": "Question", "name": "What is joiner-mover-leaver?", "acceptedAnswer": {"@type": "Answer", "text": "Joiner-mover-leaver, or JML, describes the three moments in someone's working life when their access needs to change: when they join, when they move roles, and when they leave. Joiners and leavers get most of the attention, but movers are where risk quietly builds up. People change teams and keep their old access \"just in case\", until years later they hold far more than their job needs. This is known as privilege creep. The strongest setups drive JML from the HR system: HR records the change, and the identity platform grants, adjusts or removes access automatically, using tools such as Okta Workflows. Leavers are the most urgent case. Access should end on someone's last day, not whenever a ticket is eventually picked up."}}, {"@type": "Question", "name": "RBAC or ABAC: how should access be assigned?", "acceptedAnswer": {"@type": "Answer", "text": "Role-based access control (RBAC) grants access by job role: everyone in the finance team gets the finance applications. It's simple to understand and to audit, but roles tend to multiply as every exception becomes a new role. Attribute-based access control (ABAC) decides access from attributes about the person and the situation, such as department, location, device health or time of day. It's more flexible and scales better, but it's harder to reason about and to explain to auditors. Most organisations do best with a blend: roles for the broad strokes, drawn from clean HR attributes, and attribute-based conditions for sensitive access, such as requiring a managed device or blocking sign-ins from unexpected countries."}}, {"@type": "Question", "name": "What do least privilege and PAM mean in practice?", "acceptedAnswer": {"@type": "Answer", "text": "Least privilege means giving people only the access they need to do their job, and nothing more. It limits the damage if an account is compromised, and it's a requirement in most security frameworks. Privileged access management (PAM) applies that principle to the most powerful accounts: administrators, service accounts and anything that can change security settings or reach sensitive data. Good PAM usually means admins use separate accounts for admin work, elevated access is granted just in time and expires automatically, privileged sessions are logged, and shared passwords are held in a vault rather than a spreadsheet. A good first step costs nothing: list who holds administrator rights in your identity provider and key systems, and ask whether each of them still needs it."}}]}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="Albert Sunday, home">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="32" cy="32" r="8" fill="currentColor"/></svg>
+        Albert Sunday
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#expertise">Expertise</a></li>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/#cv">CV</a></li>
+          <li><a href="/blog/" aria-current="page">Blog</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="icon-link" href="https://www.linkedin.com/in/albert-edidiong-168b92b1/" target="_blank" rel="noopener noreferrer" aria-label="Albert on LinkedIn (opens in a new tab)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.83v1.5h.05c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13v5.43h-4v-4.82c0-1.15-.02-2.63-1.6-2.63-1.61 0-1.86 1.25-1.86 2.55v4.9h-4v-11z"/></svg>
+      </a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+<article class="article">
+  <header class="article-head">
+    <p class="article-kicker"><a href="/blog/">Writing</a></p>
+    <h1>IAM FAQs: the essentials</h1>
+    <p class="article-lede">Plain answers to the ten questions I'm asked most about identity and access management, from what IAM actually covers to why SMS codes are no longer enough.</p>
+    <p class="article-meta"><time datetime="2026-09">September 2026</time><span>7 min read</span></p>
+  </header>
+
+  <nav class="toc" aria-label="Questions in this article">
+    <p class="toc-title">In this article</p>
+    <ol>
+      <li><a href="#what-is-iam">What is identity and access management?</a></li>
+      <li><a href="#authn-authz">What's the difference between authentication and authorisation?</a></li>
+      <li><a href="#sso">What is single sign-on, and is it a security risk?</a></li>
+      <li><a href="#mfa">Is SMS-based MFA good enough?</a></li>
+      <li><a href="#phishing-resistant">What does "phishing-resistant" authentication mean?</a></li>
+      <li><a href="#saml-oidc">SAML or OIDC: which should I use?</a></li>
+      <li><a href="#scim">What is SCIM provisioning?</a></li>
+      <li><a href="#jml">What is joiner-mover-leaver?</a></li>
+      <li><a href="#rbac-abac">RBAC or ABAC: how should access be assigned?</a></li>
+      <li><a href="#least-privilege">What do least privilege and PAM mean in practice?</a></li>
+    </ol>
+  </nav>
+
+  <div class="prose article-body">
+    <h2 id="what-is-iam">What is identity and access management?</h2>
+    <p>Identity and access management, usually shortened to IAM, is the discipline of making sure the right people and systems can reach the right resources, at the right time, for the right reasons, and that you can show who had access to what.</p>
+    <p>In practice it covers four jobs. Identity: a single, trustworthy record of every person and service account. Authentication: proving someone is who they claim to be. Authorisation: deciding what they're allowed to do once they're in. Governance: reviewing and evidencing that access over time, so it doesn't quietly pile up.</p>
+    <p>Most organisations run this through an identity platform such as Okta or Microsoft Entra ID, which becomes the front door to every application.</p>
+
+    <h2 id="authn-authz">What's the difference between authentication and authorisation?</h2>
+    <p>Authentication answers "who are you?" Authorisation answers "what are you allowed to do?"</p>
+    <p>Showing your passport at an airport is authentication. Your boarding pass, which lets you onto one specific flight and not the others, is authorisation. The two are often handled by different systems: your identity provider authenticates you, then the application decides what your role lets you see and change.</p>
+    <p>Most breaches involving identity exploit one or the other: stolen credentials beat weak authentication, and excessive permissions turn a single compromised account into a much bigger problem.</p>
+
+    <h2 id="sso">What is single sign-on, and is it a security risk?</h2>
+    <p>Single sign-on (SSO) lets people sign in once, to their identity provider, and then reach all their connected applications without separate passwords for each.</p>
+    <p>A common worry is that SSO puts all your eggs in one basket. It does, but that basket is far easier to protect than dozens of scattered passwords. With SSO you enforce strong MFA in one place, see every sign-in in one log, and switch off someone's access to everything in a single step when they leave. Without it, people reuse passwords across apps, and offboarding means hunting through each system by hand.</p>
+    <p>The key is to treat the identity provider as your most critical system: strong MFA for everyone, extra protection for administrators, and monitoring of unusual sign-ins.</p>
+
+    <h2 id="mfa">Is SMS-based MFA good enough?</h2>
+    <p>It's much better than a password alone, but it's the weakest form of MFA and no longer enough for most organisations.</p>
+    <p>Text-message codes can be intercepted through SIM-swap fraud, where an attacker persuades a mobile carrier to move your number to their SIM. More commonly, users are simply tricked into typing the code into a convincing fake login page. Authenticator-app push notifications help, but they can be defeated by the same fake pages, or by "MFA fatigue" attacks that bombard someone with prompts until they tap approve.</p>
+    <p>If you're still on SMS, the practical path is: move everyone to an authenticator app with number matching, then move towards phishing-resistant methods, starting with administrators and other high-risk users.</p>
+
+    <h2 id="phishing-resistant">What does "phishing-resistant" authentication mean?</h2>
+    <p>Phishing-resistant authentication can't be passed along to a fake website, even if the user is fooled. The credential is cryptographically tied to the real site's address, so a look-alike page simply can't use it.</p>
+    <p>The main options are FIDO2 security keys, passkeys, platform authenticators such as Windows Hello for Business, and Okta FastPass when it's configured to be phishing-resistant. Smart cards also qualify. These methods are usually easier for users too: a fingerprint or face check replaces typing codes.</p>
+    <p>For most organisations, the sensible first step is phishing-resistant MFA for administrators, finance teams and executives, then extending it to everyone.</p>
+
+    <h2 id="saml-oidc">SAML or OIDC: which should I use?</h2>
+    <p>Both are standards that let an identity provider tell an application "this person has signed in, and here's who they are". They solve the same problem in different eras.</p>
+    <p>SAML 2.0 dates from the mid-2000s and exchanges XML documents through the browser. It's mature, widely supported by enterprise software, and still the default for many business applications. OpenID Connect (OIDC) is newer, built on OAuth 2.0, and uses lightweight JSON tokens. It's better suited to modern web apps, mobile apps and APIs.</p>
+    <p>My rule of thumb: use whatever the application supports well. If it offers both, choose OIDC for new builds and anything mobile, and SAML where it's the vendor's more mature option. One common confusion is worth clearing up: OAuth 2.0 on its own is for authorisation, granting an app access to something on your behalf. OIDC is the layer that adds authentication on top.</p>
+
+    <h2 id="scim">What is SCIM provisioning?</h2>
+    <p>SCIM (System for Cross-domain Identity Management) is a standard way for your identity provider to create, update and remove user accounts inside other applications automatically.</p>
+    <p>SSO controls how people sign in; SCIM controls whether their account exists at all. Without it, someone in IT creates accounts by hand in each app, and deleting them when people leave is easy to forget. With SCIM, assigning someone an application in Okta or Entra creates their account there, a change of department updates it, and removing them from the application disables it.</p>
+    <p>When you evaluate new software, SCIM support is one of the most useful things to check for. It's often only available on higher pricing tiers, so ask early.</p>
+
+    <h2 id="jml">What is joiner-mover-leaver?</h2>
+    <p>Joiner-mover-leaver, or JML, describes the three moments in someone's working life when their access needs to change: when they join, when they move roles, and when they leave.</p>
+    <p>Joiners and leavers get most of the attention, but movers are where risk quietly builds up. People change teams and keep their old access "just in case", until years later they hold far more than their job needs. This is known as privilege creep.</p>
+    <p>The strongest setups drive JML from the HR system: HR records the change, and the identity platform grants, adjusts or removes access automatically, using tools such as Okta Workflows. Leavers are the most urgent case. Access should end on someone's last day, not whenever a ticket is eventually picked up.</p>
+
+    <h2 id="rbac-abac">RBAC or ABAC: how should access be assigned?</h2>
+    <p>Role-based access control (RBAC) grants access by job role: everyone in the finance team gets the finance applications. It's simple to understand and to audit, but roles tend to multiply as every exception becomes a new role.</p>
+    <p>Attribute-based access control (ABAC) decides access from attributes about the person and the situation, such as department, location, device health or time of day. It's more flexible and scales better, but it's harder to reason about and to explain to auditors.</p>
+    <p>Most organisations do best with a blend: roles for the broad strokes, drawn from clean HR attributes, and attribute-based conditions for sensitive access, such as requiring a managed device or blocking sign-ins from unexpected countries.</p>
+
+    <h2 id="least-privilege">What do least privilege and PAM mean in practice?</h2>
+    <p>Least privilege means giving people only the access they need to do their job, and nothing more. It limits the damage if an account is compromised, and it's a requirement in most security frameworks.</p>
+    <p>Privileged access management (PAM) applies that principle to the most powerful accounts: administrators, service accounts and anything that can change security settings or reach sensitive data. Good PAM usually means admins use separate accounts for admin work, elevated access is granted just in time and expires automatically, privileged sessions are logged, and shared passwords are held in a vault rather than a spreadsheet.</p>
+    <p>A good first step costs nothing: list who holds administrator rights in your identity provider and key systems, and ask whether each of them still needs it.</p>
+
+    <div class="article-cta">
+      <h2>Have a question that isn't here?</h2>
+      <p>Send it over. If it comes up often, it may well become the next article.</p>
+      <a class="btn btn-primary" href="mailto:albert@albertsunday.com">Email albert@albertsunday.com</a>
+    </div>
+  </div>
+</article>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; <span id="year">2026</span> Albert Sunday. Based in Mauritius.</p>
+      <p>IAM Engineer at Excellenta Cyber. <a href="https://www.linkedin.com/in/albert-edidiong-168b92b1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
